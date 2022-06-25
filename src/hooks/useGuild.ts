@@ -44,16 +44,35 @@ export const useGuild = () => {
         const nft = await guild.guildIdToNFTAddress(i);
         temp.push({
           ...g,
+          id: i,
           guildToRewardsLeft: reward,
           guildIdToNFTAddress: nft,
         });
       }
       setGuilds(temp);
-      console.log({ temp });
     } catch (error) {
       console.log("Error:", error);
     }
   }, [contracts]);
+
+  const getGuild = useCallback(async (id: number): Promise<GuildItem> => {
+    const signer = library?.getSigner();
+    const guild = new ethers.Contract(
+      "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0",
+      abi,
+      signer
+    );
+    const g = await guild.guilds(id);
+    const reward = await guild.guildToRewardsLeft(id);
+    const nft = await guild.guildIdToNFTAddress(id);
+    const d: GuildItem = {
+      ...g,
+      id: id,
+      guildToRewardsLeft: reward,
+      guildIdToNFTAddress: nft,
+    };
+    return d;
+  }, []);
 
   const createGuild = async (data: GuildForm) => {
     // validation
@@ -104,5 +123,5 @@ export const useGuild = () => {
     return receipt.transactionHash;
   };
 
-  return { createGuild, getGuildList, guilds };
+  return { createGuild, getGuildList, getGuild, guilds };
 };

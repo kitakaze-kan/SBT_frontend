@@ -21,7 +21,7 @@ export const CreateContainer: FC = () => {
 
     return (
         <main className="h-screen overflow-hidden max-w-screen-lg mx-auto text-lg">
-            <h1 className="text-3xl py-4">Create New SBT</h1>
+            <h1 className="text-3xl py-4">Create New Guild</h1>
             <form
                 className="w-full h-full"
                 onSubmit={handleSubmit(onClickSubmit)}
