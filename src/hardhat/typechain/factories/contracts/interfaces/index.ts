@@ -3,3 +3,4 @@
 /* eslint-disable */
 export { IOracle__factory } from "./IOracle__factory";
 export { ISoulbound__factory } from "./ISoulbound__factory";
+export { IWorldID__factory } from "./IWorldID__factory";

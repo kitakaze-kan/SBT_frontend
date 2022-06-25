@@ -10,6 +10,9 @@ const Home: NextPage = () => {
         <Link href="/create">
             <p className="text-xl cursor-pointer">create page</p>
         </Link>
+        <Link href="/list">
+            <p className="text-xl cursor-pointer">list page</p>
+        </Link>
     </div>
   )
 }

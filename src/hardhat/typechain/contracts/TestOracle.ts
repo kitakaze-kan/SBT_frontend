@@ -18,9 +18,9 @@ import type {
   TypedListener,
   OnEvent,
   PromiseOrValue,
-} from "../../common";
+} from "../common";
 
-export interface IOracleInterface extends utils.Interface {
+export interface TestOracleInterface extends utils.Interface {
   functions: {
     "hasCompleted(address)": FunctionFragment;
   };
@@ -40,12 +40,12 @@ export interface IOracleInterface extends utils.Interface {
   events: {};
 }
 
-export interface IOracle extends BaseContract {
+export interface TestOracle extends BaseContract {
   connect(signerOrProvider: Signer | Provider | string): this;
   attach(addressOrName: string): this;
   deployed(): Promise<this>;
 
-  interface: IOracleInterface;
+  interface: TestOracleInterface;
 
   queryFilter<TEvent extends TypedEvent>(
     event: TypedEventFilter<TEvent>,

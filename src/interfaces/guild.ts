@@ -4,6 +4,10 @@ export type GuildForm = GuildDetail & {
   name: string;
   symbol: string;
 };
+export type GuildItem = GuildDetail & {
+  guildToRewardsLeft: string;
+  guildIdToNFTAddress: string;
+};
 
 export type GuildDetail = {
   description: string;

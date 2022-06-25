@@ -56,6 +56,7 @@ export declare namespace Guild {
 
 export interface GuildInterface extends utils.Interface {
   functions: {
+    "claim(address,uint256,uint256,uint256,uint256[8])": FunctionFragment;
     "createGuild(string,string,(string,string,address,address,uint256,uint256))": FunctionFragment;
     "guildCounter()": FunctionFragment;
     "guildIdToNFTAddress(uint256)": FunctionFragment;
@@ -66,6 +67,7 @@ export interface GuildInterface extends utils.Interface {
 
   getFunction(
     nameOrSignatureOrTopic:
+      | "claim"
       | "createGuild"
       | "guildCounter"
       | "guildIdToNFTAddress"
@@ -74,6 +76,16 @@ export interface GuildInterface extends utils.Interface {
       | "mint"
   ): FunctionFragment;
 
+  encodeFunctionData(
+    functionFragment: "claim",
+    values: [
+      PromiseOrValue<string>,
+      PromiseOrValue<BigNumberish>,
+      PromiseOrValue<BigNumberish>,
+      PromiseOrValue<BigNumberish>,
+      PromiseOrValue<BigNumberish>[]
+    ]
+  ): string;
   encodeFunctionData(
     functionFragment: "createGuild",
     values: [
@@ -103,6 +115,7 @@ export interface GuildInterface extends utils.Interface {
     values: [PromiseOrValue<string>, PromiseOrValue<BigNumberish>]
   ): string;
 
+  decodeFunctionResult(functionFragment: "claim", data: BytesLike): Result;
   decodeFunctionResult(
     functionFragment: "createGuild",
     data: BytesLike
@@ -161,6 +174,15 @@ export interface Guild extends BaseContract {
   removeListener: OnEvent<this>;
 
   functions: {
+    claim(
+      receiver: PromiseOrValue<string>,
+      id: PromiseOrValue<BigNumberish>,
+      root: PromiseOrValue<BigNumberish>,
+      nullifierHash: PromiseOrValue<BigNumberish>,
+      proof: PromiseOrValue<BigNumberish>[],
+      overrides?: Overrides & { from?: PromiseOrValue<string> }
+    ): Promise<ContractTransaction>;
+
     createGuild(
       _name: PromiseOrValue<string>,
       _symbol: PromiseOrValue<string>,
@@ -200,6 +222,15 @@ export interface Guild extends BaseContract {
       overrides?: Overrides & { from?: PromiseOrValue<string> }
     ): Promise<ContractTransaction>;
   };
+
+  claim(
+    receiver: PromiseOrValue<string>,
+    id: PromiseOrValue<BigNumberish>,
+    root: PromiseOrValue<BigNumberish>,
+    nullifierHash: PromiseOrValue<BigNumberish>,
+    proof: PromiseOrValue<BigNumberish>[],
+    overrides?: Overrides & { from?: PromiseOrValue<string> }
+  ): Promise<ContractTransaction>;
 
   createGuild(
     _name: PromiseOrValue<string>,
@@ -241,6 +272,15 @@ export interface Guild extends BaseContract {
   ): Promise<ContractTransaction>;
 
   callStatic: {
+    claim(
+      receiver: PromiseOrValue<string>,
+      id: PromiseOrValue<BigNumberish>,
+      root: PromiseOrValue<BigNumberish>,
+      nullifierHash: PromiseOrValue<BigNumberish>,
+      proof: PromiseOrValue<BigNumberish>[],
+      overrides?: CallOverrides
+    ): Promise<void>;
+
     createGuild(
       _name: PromiseOrValue<string>,
       _symbol: PromiseOrValue<string>,
@@ -287,6 +327,15 @@ export interface Guild extends BaseContract {
   };
 
   estimateGas: {
+    claim(
+      receiver: PromiseOrValue<string>,
+      id: PromiseOrValue<BigNumberish>,
+      root: PromiseOrValue<BigNumberish>,
+      nullifierHash: PromiseOrValue<BigNumberish>,
+      proof: PromiseOrValue<BigNumberish>[],
+      overrides?: Overrides & { from?: PromiseOrValue<string> }
+    ): Promise<BigNumber>;
+
     createGuild(
       _name: PromiseOrValue<string>,
       _symbol: PromiseOrValue<string>,
@@ -319,6 +368,15 @@ export interface Guild extends BaseContract {
   };
 
   populateTransaction: {
+    claim(
+      receiver: PromiseOrValue<string>,
+      id: PromiseOrValue<BigNumberish>,
+      root: PromiseOrValue<BigNumberish>,
+      nullifierHash: PromiseOrValue<BigNumberish>,
+      proof: PromiseOrValue<BigNumberish>[],
+      overrides?: Overrides & { from?: PromiseOrValue<string> }
+    ): Promise<PopulatedTransaction>;
+
     createGuild(
       _name: PromiseOrValue<string>,
       _symbol: PromiseOrValue<string>,

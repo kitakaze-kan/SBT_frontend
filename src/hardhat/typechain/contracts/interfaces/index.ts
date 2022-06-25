@@ -3,3 +3,4 @@
 /* eslint-disable */
 export type { IOracle } from "./IOracle";
 export type { ISoulbound } from "./ISoulbound";
+export type { IWorldID } from "./IWorldID";

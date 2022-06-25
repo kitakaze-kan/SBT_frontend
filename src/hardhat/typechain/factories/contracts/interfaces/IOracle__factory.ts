@@ -11,25 +11,6 @@ import type {
 
 const _abi = [
   {
-    anonymous: false,
-    inputs: [
-      {
-        indexed: true,
-        internalType: "address",
-        name: "from",
-        type: "address",
-      },
-      {
-        indexed: true,
-        internalType: "uint256",
-        name: "guildId",
-        type: "uint256",
-      },
-    ],
-    name: "TaskCompleted",
-    type: "event",
-  },
-  {
     inputs: [
       {
         internalType: "address",

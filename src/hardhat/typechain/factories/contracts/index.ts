@@ -4,3 +4,4 @@
 export * as interfaces from "./interfaces";
 export { Guild__factory } from "./Guild__factory";
 export { Soulbound__factory } from "./Soulbound__factory";
+export { TestOracle__factory } from "./TestOracle__factory";

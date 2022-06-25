@@ -38,8 +38,6 @@ export class Contracts {
     networkId: NetworkId,
     signerOrProvider: SignerOrProvider
   ): Contracts {
-    console.log("deploymentInfo", deploymentInfo);
-    console.log("networkId", networkId);
     return Contracts.fromAddresses(
       {
         guild: (deploymentInfo as any)[networkId].Guild.address,
