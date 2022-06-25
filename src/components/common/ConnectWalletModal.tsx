@@ -1,6 +1,5 @@
 import { useWalletAccount } from "@/hooks/useWalletAccount";
 import { useShowConnectWalletModal } from "@/jotai/ui";
-import Image from "next/image";
 import { FC } from "react";
 import { Modal,Button } from "react-daisyui";
 
@@ -9,8 +8,8 @@ export const ConnectWalletModal: FC = () => {
     const [isShow, setShow] = useShowConnectWalletModal()
     const { connectWallet, connectWalletWithWC } = useWalletAccount();
 
-    const metaMask = <Image src={"/metamask.svg"} width={48} height={48} objectFit="contain" alt="metamask" />
-    const walletConnect = <Image src={"/wallet_connect.svg"} width={48} height={48} objectFit="contain" alt="metamask" />
+    const metaMask = <img src={"/metamask.svg"} width={48} height={48} alt="metamask" />
+    const walletConnect = <img src={"/wallet_connect.svg"} width={48} height={48} alt="metamask" />
 
     const connect = async (type: "metamask" | "walletconnect") => {
         if(type==="metamask") await connectWallet()

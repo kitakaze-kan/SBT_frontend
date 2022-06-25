@@ -27,7 +27,7 @@ export const ConnectWalletBtn = () => {
         return (
           <div className="dropdown dropdown-end">
               <label tabIndex={0} className="btn btn-ghost">
-                  <Button className="rounded-lg px-2 py-1.5 text-xs sm:px-4 sm:text-base text-white bg-gradient-to-r from-border_l via-border_via to-border_r">{shortenStr(account, 12)}</Button>
+                  <Button className="rounded-lg px-2 py-1.5 text-xs sm:px-4 sm:text-base text-white bg-primary">{shortenStr(account, 12)}</Button>
               </label>
               <div tabIndex={0} className="mt-3 card card-compact dropdown-content w-52 bg-base-100 shadow">
                   {content}
@@ -38,7 +38,7 @@ export const ConnectWalletBtn = () => {
     
       return (
         <Button
-            className="rounded-lg px-2 py-1.5 text-xs sm:px-4 sm:text-base text-white bg-gradient-to-r from-border_l via-border_via to-border_r"
+            className="rounded-lg px-2 py-1.5 text-xs sm:px-4 sm:text-base text-white bg-primary"
             onClick={() => setShow(true)}
         >
             {" "}
